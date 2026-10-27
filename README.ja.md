@@ -2,7 +2,7 @@
 
 [Codex](https://developers.openai.com/codex) と [Claude Code](https://claude.com/claude-code) で使える、複数モデルによる意思決定のプラグイン（スキルと席のエージェント）です。設計判断や方針の見直しなど、1 つのモデルの答えだけで決めたくない議題に使います。モデルの違う複数の席が票を入れ、決まった 1 席が必ず反論するので、全員が同じ見落としをしたまま合意することを減らせます。
 
-[English](README.md)
+[English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
 複数の参加者が各案に投票し、別の **10 番目の男** が、自分の見解にかかわらず全案に反論します。反論には必ず、それを崩せる証拠や実験も添えます。メインのセッションが議長となって 3 ラウンドを進め、強い懸念を解消し、何がどんな根拠で決まり、何が未解決かを議事録に残します。
 
