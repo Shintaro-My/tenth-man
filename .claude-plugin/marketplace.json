@@ -1,0 +1,14 @@
+{
+  "name": "tenth-man",
+  "description": "Marketplace for the tenth-man plugin: a multi-model council with a mandatory dissenter.",
+  "owner": {
+    "name": "tenth-man authors"
+  },
+  "plugins": [
+    {
+      "name": "tenth-man",
+      "source": "./",
+      "description": "A multi-model deliberation council with voting members and a mandatory dissenter."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "tenth-man",
+  "version": "0.2.0",
+  "description": "A multi-model deliberation council with voting members and a mandatory dissenter.",
+  "author": {
+    "name": "tenth-man authors"
+  },
+  "license": "MIT",
+  "keywords": ["council", "deliberation", "devils-advocate", "red-team", "multi-model", "subagents"]
+}
