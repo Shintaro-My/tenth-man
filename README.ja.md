@@ -23,11 +23,11 @@
 ### プラグインとして
 
 ```sh
-codex plugin marketplace add <owner>/tenth-man
+codex plugin marketplace add Shintaro-My/tenth-man
 codex plugin add tenth-man@tenth-man
 ```
 
-`<owner>` は、このリポジトリを置いた GitHub アカウントに置き換えてください。手元のチェックアウトを試す場合は、そのパスを登録します。
+手元のチェックアウトを試す場合は、そのパスを登録します。
 
 ```sh
 codex plugin marketplace add /path/to/tenth-man
@@ -63,7 +63,7 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 ### プラグインとして
 
 ```text
-/plugin marketplace add <owner>/tenth-man
+/plugin marketplace add Shintaro-My/tenth-man
 /plugin install tenth-man@tenth-man
 ```
 

@@ -30,11 +30,11 @@ voting members and no remaining strong concern. The tenth man has no vote.
 ### As a plugin
 
 ```sh
-codex plugin marketplace add <owner>/tenth-man
+codex plugin marketplace add Shintaro-My/tenth-man
 codex plugin add tenth-man@tenth-man
 ```
 
-Replace `<owner>` with the GitHub account hosting this repository. For a local checkout, add its path instead:
+For a local checkout, add its path instead:
 
 ```sh
 codex plugin marketplace add /path/to/tenth-man
@@ -72,7 +72,7 @@ continue their threads across rounds. Plugin packaging does not install custom-a
 ### As a plugin
 
 ```text
-/plugin marketplace add <owner>/tenth-man
+/plugin marketplace add Shintaro-My/tenth-man
 /plugin install tenth-man@tenth-man
 ```
 
