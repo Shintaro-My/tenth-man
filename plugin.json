@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "description": "A multi-model deliberation council with voting members and a mandatory dissenter.",
   "author": {
-    "name": "tenth-man authors"
+    "name": "Shintaro-My"
   },
   "license": "MIT",
   "keywords": ["council", "deliberation", "devils-advocate", "red-team", "multi-model", "subagents"]
