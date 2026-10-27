@@ -5,7 +5,7 @@ A multi-model deliberation plugin (a skill plus seat agents) for [Codex](https:/
 not rest on one model's answer. Seats on different models vote and one fixed seat always argues against, so the council
 is less likely to agree while sharing the same blind spot.
 
-[日本語](README.ja.md)
+[English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
 Voting members assess every proposal. A separate **tenth man** must argue against every proposal regardless of its own
 view and state what evidence would refute each objection. The main session chairs three rounds, resolves strong
