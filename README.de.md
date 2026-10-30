@@ -6,7 +6,7 @@ Ein Plugin für Beratungen mit mehreren Modellen (ein Skill plus Agenten für di
 
 Die stimmberechtigten Mitglieder bewerten jeden Vorschlag. Ein separater **zehnter Mann** (tenth man) muss unabhängig von seiner eigenen Einschätzung gegen jeden Vorschlag argumentieren und angeben, welche Belege jeden seiner Einwände widerlegen würden. Die Hauptsession führt den Vorsitz über drei Runden, klärt ernste Bedenken und erstellt ein Protokoll, das festhält, worauf sich die Mitglieder geeinigt haben, warum und was offen bleibt.
 
-Der Skill legt immer zuerst seinen Plan für den Rat vor und wartet auf Ihre Freigabe. Die Schlussfolgerungen eines Rats werden nie automatisch auf Ihr Projekt angewendet.
+Der Skill legt zuerst seinen Plan für den Rat vor und wartet auf Ihre Freigabe. Wenn Sie nicht warten möchten, setzen Sie `fast` vor die Frage (zum Beispiel `/tenth-man:council fast Sollten wir ...?`): Der Vorsitz zeigt den Plan und beginnt sofort, trifft die Standardauswahl selbst und führt diese Entscheidungen im Protokoll auf. Die Schlussfolgerungen eines Rats werden nie automatisch auf Ihr Projekt angewendet.
 
 ## So funktioniert es
 

@@ -6,7 +6,7 @@ Un plugin de délibération multimodèle (un skill et des agents qui occupent le
 
 Les membres votants évaluent chaque proposition. Un **dixième homme** (tenth man) distinct doit argumenter contre chaque proposition, quel que soit son propre avis, et indiquer quels éléments réfuteraient chacune de ses objections. La session principale préside trois tours, résout les préoccupations majeures et rédige un procès-verbal qui indique ce qui a été convenu, pourquoi, et ce qui reste ouvert.
 
-Le skill présente toujours d'abord son plan de délibération et attend votre approbation. Les conclusions d'un conseil ne sont jamais appliquées automatiquement à votre projet.
+Le skill présente d'abord son plan de délibération et attend votre approbation. Pour ne pas attendre, placez `fast` avant la question (par exemple `/tenth-man:council fast Devons-nous ... ?`) : la présidence affiche le plan et commence aussitôt, choisit elle-même les options par défaut et indique ces choix dans le procès-verbal. Les conclusions d'un conseil ne sont jamais appliquées automatiquement à votre projet.
 
 ## Fonctionnement
 

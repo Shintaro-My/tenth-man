@@ -11,8 +11,10 @@ Voting members assess every proposal. A separate **tenth man** must argue agains
 view and state what evidence would refute each objection. The main session chairs three rounds, resolves strong
 concerns, and writes minutes showing what was agreed, why, and what remains open.
 
-The skill always presents its council plan first and waits for your approval. Running a council never applies its
-conclusions to your project automatically.
+The skill presents its council plan first and waits for your approval. To skip the wait, put `fast` before the question
+(for example `/tenth-man:council fast Should we ...?`): the chair shows the plan and starts right away, choosing the
+defaults itself and listing those choices in the minutes. Running a council never applies its conclusions to your
+project automatically.
 
 ## How it works
 

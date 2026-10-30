@@ -1,7 +1,7 @@
 ---
 name: council
-description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. Use only when the user explicitly invokes the skill; present the council plan and wait for approval before spawning agents.
-argument-hint: <question, decision or proposals to deliberate>
+description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. Use only when the user explicitly invokes the skill; present the council plan and wait for approval before spawning agents, unless the invocation starts with `fast`.
+argument-hint: [fast] <question, decision or proposals to deliberate>
 disable-model-invocation: true
 ---
 
@@ -9,7 +9,9 @@ disable-model-invocation: true
 
 Act as the chair of a structured, multi-model deliberation. The question is the text the user supplied with the skill
 invocation. Claude Code fills it in on the "Question" line below. Codex leaves a placeholder there instead; on Codex,
-take the question from the user's message. If no question was given, ask the user for one before anything else.
+take the question from the user's message. If the first word of that text is `fast` or `--fast`, remove it from the
+question and run in fast mode (see "Fast mode"). If no question was given, ask the user for one before anything else,
+even in fast mode.
 
 Question: $ARGUMENTS
 
@@ -28,7 +30,7 @@ The rules below apply on both hosts.
 
 ## Get approval before starting
 
-Do not spawn any seat immediately. First show the user:
+Except in fast mode, do not spawn any seat immediately. First show the user:
 
 - the question and candidate items;
 - the proposed preset, every voting member's model, and the tenth man's model;
@@ -37,6 +39,19 @@ Do not spawn any seat immediately. First show the user:
 
 Wait for the user's go-ahead. Incorporate requested changes before starting. Approval to run the council does not grant
 approval to apply its conclusions to code, rules, documents, or external systems.
+
+### Fast mode
+
+When the invocation starts with `fast`, the user has approved the council in advance. Prepare the plan exactly as
+above, show it to the user, and start the seats in the same turn without waiting for a reply.
+
+- Settle the choices normally made at approval by the defaults: `light` for a small question and `standard` otherwise
+  (or the preset the user named), and the usual tenth-man rule. When a model's rank is unclear, use the documented
+  order and state the assumption in the plan instead of asking.
+- If a preset model is unavailable, drop that seat and state it in the plan; never substitute another model. If fewer
+  than three voting members would remain, stop and ask the user.
+- Record in `minutes.md` that the council ran in fast mode, and list every choice the chair made without approval.
+- Fast mode skips only the approval before starting. Applying the conclusions still requires a separate request.
 
 ## Roles and independence
 
