@@ -35,7 +35,7 @@ Codex discovers them automatically in a repository checkout. To make them person
 `~/.codex/agents/`.
 
 Model catalogs and account access change. Before presenting the plan, use the models the current host advertises. If a
-preset model is unavailable, report that in the plan and propose a reduced preset; do not invent an alias or silently
+preset model is unavailable, report that in the plan and propose a reduced preset (in fast mode, follow the fast-mode rule in `SKILL.md`); do not invent an alias or silently
 substitute another model.
 
 ## Start a round

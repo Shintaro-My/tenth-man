@@ -6,7 +6,7 @@ Un plugin de deliberación con varios modelos (una skill y los agentes que ocupa
 
 Los miembros con voto evalúan cada propuesta. Un **décimo hombre** (tenth man) aparte debe argumentar en contra de cada propuesta, sin importar su propia opinión, e indicar qué evidencia refutaría cada objeción. La sesión principal preside tres rondas, resuelve las preocupaciones graves y redacta un acta que muestra qué se acordó, por qué y qué queda pendiente.
 
-La skill siempre presenta primero su plan del consejo y espera tu aprobación. Ejecutar un consejo nunca aplica sus conclusiones a tu proyecto de forma automática.
+La skill presenta primero su plan del consejo y espera tu aprobación. Para no esperar, escribe `fast` antes de la pregunta (por ejemplo, `/tenth-man:council fast ¿Deberíamos ...?`): el presidente muestra el plan y empieza de inmediato, elige él mismo las opciones predeterminadas y las enumera en el acta. Ejecutar un consejo nunca aplica sus conclusiones a tu proyecto de forma automática.
 
 ## Cómo funciona
 

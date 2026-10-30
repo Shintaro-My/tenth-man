@@ -17,7 +17,7 @@ The plugin ships role-neutral agents named `tenth-man:seat-fable`, `tenth-man:se
 `claude-opus-4-8`.
 
 Model availability and rankings change. If a pinned model is unavailable, drop the seat and tell the user; do not
-silently substitute. If an added model's rank is unknown and affects the dissenter assignment, ask at plan approval.
+silently substitute. If an added model's rank is unknown and affects the dissenter assignment, ask at plan approval (in fast mode, follow the fast-mode rule in `SKILL.md` instead).
 
 ## Start, collect, and continue
 
