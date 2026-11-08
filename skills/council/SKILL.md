@@ -107,13 +107,16 @@ Write `round-0.md` with:
 
 - the question and each item, identified by a stable ID;
 - for each item: what changes, the grounds offered, and the consequence of adopting it;
+- for each item: any dependency on another item (for example, B assumes A is adopted), or none;
 - the four vote types and consensus rule;
 - the role instructions and exact response format;
 - the relative paths of materials to read, in order.
 
 Start all seats using the approved preset and runtime procedure. A member must return, per item, one vote, a reason of
 at most two sentences, and any amendment; it may add at most three new items. The tenth man must return one objection
-per item and the data, observation, or experiment that would refute it.
+per item, the data, observation, or experiment that would refute it, and the objection's basis: **grounded** when it
+cites a specific material, file, or observation, or **hypothesis** otherwise. The basis describes the evidence, not the
+tenth man's own view of the item.
 
 ### Round 1: collect and tally
 
@@ -123,7 +126,8 @@ Write `round-2.md` containing a neutral table of all votes, strong concerns and 
 tenth-man objections. Ask members to:
 
 - reconsider every item with a strong concern;
-- answer the 3 to 6 tenth-man points most material to the decision;
+- answer the 3 to 6 tenth-man points most material to the decision, chosen by the consequence if the objection holds
+  and by its basis, not by the chair's view of the item; a hypothesis qualifies when its consequence would be material;
 - vote on a new item only if at least three members independently raised it;
 - state any vote change and its reason.
 
@@ -141,7 +145,9 @@ disclose the replacement in the minutes.
 ### Round 3: decide and record
 
 Wait for and preserve all responses under `round-3/`. Decide each item as agreed, rejected, or no consensus, then write
-`minutes.md`. For every item record:
+`minutes.md`. Copy each item's *what changes* and accepted conditions from `round-3.md` word for word, because those are
+the texts the final votes covered. If a correction is unavoidable, show the change and mark it as not voted on. For
+every item record:
 
 - what changes and when it takes effect (now, after verification, or later);
 - the grounds, final vote count, and accepted conditions;
