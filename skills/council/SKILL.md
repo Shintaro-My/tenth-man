@@ -174,7 +174,7 @@ The chair classifies each objection from the members' round-2 answers:
 | Met | The refutation condition was met by responses within the council (round-2 answers or round-3 responses). |
 | Not met | A refutation condition that can be checked within the council was not met, and the item was not amended. |
 | Addressed by amendment | In response, the item gained a condition or its text changed. The handling says which. |
-| Cannot be checked within the council | Checking needs a new experiment, outside data, or observation after the council. |
+| Cannot be checked within the council | Needs a new experiment, outside data, or observation after the council. |
 | Not examined | The objection was not taken up in round 2. |
 
 Ask the tenth man to identify at most three points in the draft, choosing the most material rather than one of each
