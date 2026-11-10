@@ -109,7 +109,7 @@ Write `round-0.md` with:
 - for each item: what changes, the grounds offered, and the consequence of adopting it;
 - for each item: any dependency on another item (for example, B assumes A is adopted), or none;
 - the four vote types and consensus rule;
-- the role instructions and exact response format;
+- the role instructions, including the tenth man's objection requirements below, and the exact response format;
 - the relative paths of materials to read, in order.
 
 Start all seats using the approved preset and runtime procedure. A member must return, per item, one vote, a reason of
@@ -117,6 +117,23 @@ at most two sentences, and any amendment; it may add at most three new items. Th
 per item, the data, observation, or experiment that would refute it, and the objection's basis: **grounded** when it
 cites a specific material, file, or observation, or **hypothesis** otherwise. The basis describes the evidence, not the
 tenth man's own view of the item.
+
+The tenth man aims each objection as follows:
+
+- Read the item as written, and give the objection most specific to that item among those that can be made.
+- Target the ground or assumption the item depends on most. That includes assumptions the brief does not state and the
+  consequences of the change itself, not only the grounds the brief lists.
+- A general doubt that would apply equally to any proposal is not an objection by itself. A general point that carries
+  specifics, such as a base rate with a stated reference class, is allowed.
+- Every item still gets one objection. When no failure mechanism specific to the item can be found, do not invent one.
+  Say so in the objection with one fixed sentence that the brief supplies in its own language (for example, "No
+  item-specific mechanism was found."), name the weakest ground or assumption, and mark the basis as hypothesis. This
+  is the one exception to the definition of the basis: such an objection is a hypothesis even when it cites a material.
+
+The tenth man may also return at most one **framing objection**: an objection to the question itself or to the set of
+items as a whole. Returning none is the normal case. A framing objection must be specific to this council's question or
+items, and it carries a refutation and a basis like any other objection. It is not a new item, and it never affects any
+item's votes, status, or strong concerns. The chair does not rework the question or the items during the council.
 
 ### Round 1: collect and tally
 
@@ -127,17 +144,49 @@ tenth-man objections. Ask members to:
 
 - reconsider every item with a strong concern;
 - answer the 3 to 6 tenth-man points most material to the decision, chosen by the consequence if the objection holds
-  and by its basis, not by the chair's view of the item; a hypothesis qualifies when its consequence would be material;
+  and by its basis, not by the chair's view of the item; a hypothesis qualifies when its consequence would be material,
+  and a framing objection is chosen by the same criteria as an objection to an item;
 - vote on a new item only if at least three members independently raised it;
 - state any vote change and its reason.
+
+Ask the tenth man to read the members' preserved round-1 responses, whose paths the request gives, and to name at most
+three items where the reasons for agreeing all rest on the same unverified premise. For each, the tenth man states the
+premise and the data or observation that would check it.
 
 Send the round to the same seats, retaining their roles and model assignments.
 
 ### Round 2: resolve concerns
 
 Wait for and preserve all responses under `round-2/`. Write `round-3.md` as draft minutes: fold accepted conditions
-into each item, keep grounds separate from what changes, and request final votes. Ask the tenth man to identify at most
-three statements that contradict the evidence or would make the outcome worse.
+into each item, keep grounds separate from what changes, and request final votes. A member who votes oppose gives one
+sentence of reason against the text of `round-3.md`.
+
+Include in the draft:
+
+- the tenth man's shared-premise findings from round 2, so that members can answer them with their final votes;
+- for each tenth-man objection, including a framing objection: how it was handled (what members answered) and the
+  chair's classification with a one-sentence reason.
+
+The chair classifies each objection from the members' round-2 answers:
+
+| Classification | Meaning |
+|---|---|
+| Met | The refutation condition was met by responses within the council (round-2 answers or round-3 responses). |
+| Not met | A refutation condition that can be checked within the council was not met, and the item was not amended. |
+| Addressed by amendment | In response, the item gained a condition or its text changed. The handling says which. |
+| Cannot be checked within the council | Checking needs a new experiment, outside data, or observation after the council. |
+| Not examined | The objection was not taken up in round 2. |
+
+Ask the tenth man to identify at most three points in the draft, choosing the most material rather than one of each
+kind:
+
+- a statement that contradicts the evidence, including a classification the chair gave to one of its objections;
+- a statement that would make the outcome worse;
+- reasons for agreeing that all rest on the same unverified premise, limited to premises that arose after round 2 from
+  folded conditions or rewritten grounds;
+- an item that its accepted conditions have narrowed until the effect of the original proposal no longer remains. For
+  this, the tenth man quotes the sentence of `round-0.md` used as the baseline, from the item's *what changes* or
+  grounds, and names the condition that removed the effect.
 
 Send the draft to the same seats. If a runtime cannot continue a seat, use the recovery rule in its procedure and
 disclose the replacement in the minutes.
@@ -152,8 +201,25 @@ every item record:
 - what changes and when it takes effect (now, after verification, or later);
 - the grounds, final vote count, and accepted conditions;
 - strong concerns and whether their stated withdrawal conditions were met;
-- the tenth man's material objections and how each was handled;
+- the tenth man's objections, how each was handled, and its classification;
+- for an agreed item, each oppose vote that remains from the final vote: the seat's name and its one-sentence reason;
 - dependencies and remaining open questions.
+
+Apply these rules to the record:
+
+- **Classifications.** Change one after the final vote only when a round-3 response settles the refutation condition,
+  and mark it as changed after the vote.
+- **Remaining oppose votes.** Copy the reason as written as a rule, without the chair's evaluation. Oppose votes that
+  make the same point may be grouped with the seat names listed. Do not repeat strong concerns or tenth-man objections
+  here. State that this record preserves minority views and is not a second conclusion.
+- **Framing objection.** Always record it, whether it was taken up in round 2, and what members answered. Return it to
+  the user as an open question when members answered that it holds, when their answers were split, or when it was not
+  taken up.
+- **Shared-premise findings.** Record each under the item's open questions as a reservation on the agreement. It does
+  not change the item's status.
+- **Items emptied by conditions.** When the tenth man reports one, note it beside the item, show both the original
+  proposal and the text with conditions folded in, and state that the final votes covered the latter. Leave the status
+  unchanged for the user to judge.
 
 Report the result to the user. Do not implement the decision unless the user separately asks.
 
