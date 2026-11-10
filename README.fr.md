@@ -116,7 +116,9 @@ Les agents personnalisés Codex correspondants sont `seat_astra`, `seat_sol`, `s
 
 Chaque préréglage conserve un siège Opus même lorsque Fable est mieux classé, car Opus trouve parfois des problèmes que Fable ne voit pas.
 
-Le plugin Claude inclut dans `agents/` cinq agents pour les sièges, sans rôle prédéfini. Un brief attribue à chaque exécution son rôle de membre ou de dixième homme.
+Le plugin Claude inclut dans `agents/` six agents pour les sièges, sans rôle prédéfini. Un brief attribue à chaque exécution son rôle de membre ou de dixième homme.
+
+En novembre 2026, Fable désigne Fable 5.2, qui reste le membre doté des meilleures capacités de raisonnement. `seat-fable-5-1` fixe Fable 5.1, la génération précédente. Aucun préréglage ne l'utilise ; pour l'ajouter comme membre votant, demandez-le lorsque vous approuvez le plan.
 
 ### Ajouter un modèle Claude
 

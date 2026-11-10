@@ -116,7 +116,9 @@ Die passenden benutzerdefinierten Codex-Agenten sind `seat_astra`, `seat_sol`, `
 
 Jedes Preset enthält einen Opus-Sitz, auch wenn Fable höher eingestuft ist, weil Opus manchmal Probleme findet, die Fable übersieht.
 
-Das Claude-Plugin enthält in `agents/` fünf rollenneutrale Agenten für die Sitze. Ein Briefing weist jeder Ausführung ihre Rolle als Mitglied oder zehnter Mann zu.
+Das Claude-Plugin enthält in `agents/` sechs rollenneutrale Agenten für die Sitze. Ein Briefing weist jeder Ausführung ihre Rolle als Mitglied oder zehnter Mann zu.
+
+Stand November 2026 bezeichnet Fable das Modell Fable 5.2, und es bleibt das Mitglied mit dem stärksten Schlussfolgerungsvermögen. `seat-fable-5-1` legt Fable 5.1 fest, die vorherige Generation. Kein Preset verwendet diesen Sitz; wenn Sie ihn als stimmberechtigtes Mitglied hinzufügen möchten, sagen Sie das beim Freigeben des Plans.
 
 ### Ein Claude-Modell hinzufügen
 

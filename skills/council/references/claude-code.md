@@ -7,14 +7,17 @@ notifications.
 
 | Preset | Voting members | Tenth man | Runs per round |
 |---|---|---|---|
-| `light` | `fable`, `opus`, `sonnet` | strongest member (`fable` as of October 2026) | 4 |
-| `standard` (default) | `fable`, `opus`, `sonnet`, `opus-5`, `opus-4-8` | strongest member (`fable` as of October 2026) | 6 |
+| `light` | `fable`, `opus`, `sonnet` | strongest member (`fable`, which is Fable 5.2 as of November 2026) | 4 |
+| `standard` (default) | `fable`, `opus`, `sonnet`, `opus-5`, `opus-4-8` | strongest member (`fable`, which is Fable 5.2 as of November 2026) | 6 |
 | `no-fable` | `opus`, `sonnet`, `opus-5` | strongest member (`opus`) | 4 |
 
 The plugin ships role-neutral agents named `tenth-man:seat-fable`, `tenth-man:seat-opus`,
 `tenth-man:seat-sonnet`, `tenth-man:seat-opus-5`, and `tenth-man:seat-opus-4-8`. When installed by hand, omit the
 `tenth-man:` prefix. Their corresponding models are `fable`, `opus`, `sonnet`, `claude-opus-5`, and
 `claude-opus-4-8`.
+
+The plugin also ships `tenth-man:seat-fable-5-1` on `claude-fable-5-1`, the previous Fable generation. No preset uses
+it. Add it as a voting member only when the user asks for it; the tenth man still runs on the strongest member.
 
 Model availability and rankings change. If a pinned model is unavailable, drop the seat and tell the user; do not
 silently substitute. If an added model's rank is unknown and affects the dissenter assignment, ask at plan approval (in fast mode, follow the fast-mode rule in `SKILL.md` instead).
