@@ -116,7 +116,9 @@ Los agentes personalizados de Codex correspondientes son `seat_astra`, `seat_sol
 
 Todos los presets mantienen un puesto de Opus aunque Fable esté mejor clasificado, porque Opus a veces encuentra problemas que Fable pasa por alto.
 
-El plugin de Claude incluye en `agents/` cinco agentes sin rol fijo para ocupar los puestos. Las instrucciones de cada ejecución le asignan el rol de miembro o de décimo hombre.
+El plugin de Claude incluye en `agents/` seis agentes sin rol fijo para ocupar los puestos. Las instrucciones de cada ejecución le asignan el rol de miembro o de décimo hombre.
+
+En noviembre de 2026, Fable corresponde a Fable 5.2, que sigue siendo el miembro con mayor capacidad de razonamiento. `seat-fable-5-1` fija Fable 5.1, la generación anterior. Ningún preset lo usa; para añadirlo como miembro con voto, pídelo al aprobar el plan.
 
 ### Añadir un modelo de Claude
 

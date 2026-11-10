@@ -133,8 +133,11 @@ lower-cost `seat_luna`. Their TOML definitions pin the model and reasoning effor
 
 Every preset keeps an Opus seat even while Fable ranks higher, because Opus sometimes finds problems that Fable misses.
 
-The Claude plugin includes five role-neutral seat agents in `agents/`. A brief assigns each run its member or tenth-man
+The Claude plugin includes six role-neutral seat agents in `agents/`. A brief assigns each run its member or tenth-man
 role.
+
+As of November 2026, Fable means Fable 5.2, and it remains the strongest-reasoning member. `seat-fable-5-1` pins
+Fable 5.1, the previous generation. No preset uses it; ask for it when approving the plan to add it as a voting member.
 
 ### Adding a Claude model
 
