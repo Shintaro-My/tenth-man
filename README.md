@@ -16,6 +16,11 @@ The skill presents its council plan first and waits for your approval. To skip t
 defaults itself and listing those choices in the minutes. Running a council never applies its conclusions to your
 project automatically.
 
+To get only the case against something, put `solo` before the question (for example
+`/tenth-man:council solo Should we ...?`). No council convenes: the tenth man alone runs once and returns up to three
+objections per item, each with the evidence that would refute it. It is a single agent run, so it starts right away.
+Nobody answers these objections, so read the result as a list of things to check, not as a council decision.
+
 ## How it works
 
 1. The chair proposes the items, models, rules, cost, and output folder.

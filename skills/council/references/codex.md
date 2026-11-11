@@ -72,6 +72,15 @@ not permit an early tally or changes to later prompts.
 - Do not end the chair's turn while required seats are still running. Continue waiting until the round is complete or
   the failure rule in `SKILL.md` has been exhausted.
 
+## Solo mode
+
+Spawn one subagent with the task name `tenth_man`, using the profile or model that the preset table gives for the
+tenth man (`gpt-6-astra` by default). Give it the same kind of prompt as a round-1 seat, with the path of `brief.md`
+in place of the round brief. When it finishes, write its final response verbatim to `tenth-man.md` in the council
+folder, then report.
+
+## Permissions
+
 Subagents inherit the parent session's sandbox, approval settings, provider, and MCP servers. A request to run the
 council does not authorize the chair or seats to request broader permissions. Keep seat work read-only even when the
 parent can write.

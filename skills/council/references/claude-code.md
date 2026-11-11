@@ -35,5 +35,14 @@ silently substitute. If an added model's rank is unknown and affects the dissent
 - If context has become excessive or the council goes beyond three rounds, start fresh seats and pass earlier briefs
   and preserved replies as files. Record replacements in the minutes.
 
+## Solo mode
+
+Start one seat agent in the background with Agent, in the tenth-man role: `tenth-man:seat-fable` by default, or
+`tenth-man:seat-opus` when the user asks for no Fable. Give it the path of `brief.md`, the material paths in read
+order, and `tenth-man.md` in the council folder as its reply path. On the completion notification, verify that the
+reply file exists before reporting. The deadline and retry rules below apply to this single run.
+
+## Deadline
+
 Track a 30-minute deadline for each round. If it expires, identify missing seats, inspect their status, and retry once
 with the same inputs. A seat that completed without writing its response file is still missing.

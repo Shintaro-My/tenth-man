@@ -8,6 +8,8 @@ Les membres votants évaluent chaque proposition. Un **dixième homme** (tenth m
 
 Le skill présente d'abord son plan de délibération et attend votre approbation. Pour ne pas attendre, placez `fast` avant la question (par exemple `/tenth-man:council fast Devons-nous ... ?`) : la présidence affiche le plan et commence aussitôt, choisit elle-même les options par défaut et indique ces choix dans le procès-verbal. Les conclusions d'un conseil ne sont jamais appliquées automatiquement à votre projet.
 
+Pour obtenir uniquement les arguments contre quelque chose, placez `solo` avant la question (par exemple `/tenth-man:council solo Devons-nous ... ?`). Aucun conseil ne se réunit : seul le dixième homme s'exécute, une fois, et renvoie jusqu'à trois objections par proposition, chacune avec les éléments qui la réfuteraient. Comme il s'agit d'une seule exécution d'agent, elle commence aussitôt. Personne ne répond à ces objections ; lisez donc le résultat comme une liste de points à vérifier, et non comme une décision du conseil.
+
 ## Fonctionnement
 
 1. La présidence propose les points, les modèles, les règles, le coût et le dossier de sortie.
