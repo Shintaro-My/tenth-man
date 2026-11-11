@@ -8,6 +8,8 @@ Die stimmberechtigten Mitglieder bewerten jeden Vorschlag. Ein separater **zehnt
 
 Der Skill legt zuerst seinen Plan für den Rat vor und wartet auf Ihre Freigabe. Wenn Sie nicht warten möchten, setzen Sie `fast` vor die Frage (zum Beispiel `/tenth-man:council fast Sollten wir ...?`): Der Vorsitz zeigt den Plan und beginnt sofort, trifft die Standardauswahl selbst und führt diese Entscheidungen im Protokoll auf. Die Schlussfolgerungen eines Rats werden nie automatisch auf Ihr Projekt angewendet.
 
+Wenn Sie nur die Argumente gegen etwas erhalten möchten, setzen Sie `solo` vor die Frage (zum Beispiel `/tenth-man:council solo Sollten wir ...?`). Es tritt kein Rat zusammen: Nur der zehnte Mann läuft einmal und liefert bis zu drei Einwände pro Vorschlag, jeweils mit den Belegen, die den Einwand widerlegen würden. Weil es nur eine einzige Agentenausführung ist, beginnt sie sofort. Niemand beantwortet diese Einwände; lesen Sie das Ergebnis daher als Liste von Punkten, die zu prüfen sind, nicht als Entscheidung eines Rats.
+
 ## So funktioniert es
 
 1. Der Vorsitz schlägt die Punkte, Modelle, Regeln, Kosten und den Ausgabeordner vor.

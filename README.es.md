@@ -8,6 +8,8 @@ Los miembros con voto evalúan cada propuesta. Un **décimo hombre** (tenth man)
 
 La skill presenta primero su plan del consejo y espera tu aprobación. Para no esperar, escribe `fast` antes de la pregunta (por ejemplo, `/tenth-man:council fast ¿Deberíamos ...?`): el presidente muestra el plan y empieza de inmediato, elige él mismo las opciones predeterminadas y las enumera en el acta. Ejecutar un consejo nunca aplica sus conclusiones a tu proyecto de forma automática.
 
+Para obtener solo los argumentos en contra de algo, escribe `solo` antes de la pregunta (por ejemplo, `/tenth-man:council solo ¿Deberíamos ...?`). No se reúne ningún consejo: solo se ejecuta el décimo hombre, una vez, y devuelve hasta tres objeciones por propuesta, cada una con la evidencia que la refutaría. Como es una única ejecución de agente, empieza de inmediato. Nadie responde a estas objeciones, así que lee el resultado como una lista de cosas por comprobar, no como una decisión del consejo.
+
 ## Cómo funciona
 
 1. El presidente propone los puntos, los modelos, las reglas, el costo y la carpeta de salida.
