@@ -72,12 +72,15 @@ not permit an early tally or changes to later prompts.
 - Do not end the chair's turn while required seats are still running. Continue waiting until the round is complete or
   the failure rule in `SKILL.md` has been exhausted.
 
-## Solo mode
+## Review mode
 
-Spawn one subagent with the task name `tenth_man`, using the profile or model that the preset table gives for the
-tenth man (`gpt-6-astra` by default). Give it the same kind of prompt as a round-1 seat, with the path of `brief.md`
-in place of the round brief. When it finishes, write its final response verbatim to `tenth-man.md` in the council
-folder, then report.
+Follow `review.md` with the same profiles, prompts, and collection rules as a council round.
+
+- Round 1: spawn only the tenth man, and write its final response verbatim to `round-1/tenth-man.md`.
+- Round 2: spawn the members, in waves if capacity requires. Give each the brief, the material paths, and the path of
+  the tenth man's saved response. Write each final response verbatim under `round-2/`.
+- Round 3: send the tenth man a follow-up task with `round-3.md`, and save its response under `round-3/`.
+- Round 4: send each member a follow-up task with `round-4.md`, and save the responses under `round-4/`.
 
 ## Permissions
 
