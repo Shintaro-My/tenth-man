@@ -1,6 +1,6 @@
 # tenth-man
 
-一個適用於 [Codex](https://developers.openai.com/codex) 和 [Claude Code](https://claude.com/claude-code) 的多模型審議外掛程式（包含一個技能和數個席位代理）。適合用在設計選擇、方針審查等不應只依賴單一模型回答的決策。由不同模型擔任的席位進行投票，另有一個固定席位一律提出反對意見，因此可降低議事會在共有同一個盲點的情況下達成共識的可能性。
+一個適用於 [Codex](https://developers.openai.com/codex) 和 Claude（聊天、Cowork、[Claude Code](https://claude.com/claude-code)） 的多模型審議外掛程式（包含一個技能和數個席位代理）。適合用在設計選擇、方針審查等不應只依賴單一模型回答的決策。由不同模型擔任的席位進行投票，另有一個固定席位一律提出反對意見，因此可降低議事會在共有同一個盲點的情況下達成共識的可能性。
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -60,9 +60,19 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 
 即使不複製，此技能也能正常運作：它可以用同樣明確指定的模型啟動子代理，並在各輪之間延續它們的對話串。以外掛程式形式封裝時，不會自動安裝自訂代理的 TOML 檔案。
 
-## 在 Claude Code 中安裝
+## 在 Claude 中安裝
 
-### 作為外掛程式
+### 透過 Claude 應用程式
+
+在 Claude 的網頁版或桌面應用程式中，開啟設定，進入「外掛程式」，選擇「新增」，然後用下面的 URL 新增市集：
+
+```text
+https://github.com/Shintaro-My/tenth-man/tree/main
+```
+
+之後，Tenth man 會出現在已新增市集的外掛程式清單中。用這種方式新增的外掛程式，在 Claude 聊天、Cowork 和 Claude Code 中都可以使用。若要開始一次議事會，可以輸入 `/tenth-man:council` 並在後面寫上問題，也可以直接用自己的話提出請求。
+
+### 透過 Claude Code CLI
 
 ```text
 /plugin marketplace add Shintaro-My/tenth-man
@@ -108,7 +118,7 @@ cp agents/seat-*.md ~/.claude/agents/
 
 對應的 Codex 自訂代理是 `seat_astra`、`seat_sol`、`seat_terra`、`seat_previous_sol`，以及可選用的低成本 `seat_luna`。它們的 TOML 定義固定了模型和推理強度，並讓議事會的工作維持唯讀。
 
-### Claude Code
+### Claude
 
 | 預設組合 | 投票成員 | 第十人 | 每輪執行次數 |
 |---|---|---|---|
@@ -148,10 +158,10 @@ tools: Read, Grep, Glob, Bash, Write
 
 ## 成本與需求
 
-每個席位每輪對應一次完整的子代理執行。三輪下來，Codex 的 `standard` 預設組合共執行 15 次，Claude Code 的 `standard` 預設組合共執行 18 次。
+每個席位每輪對應一次完整的子代理執行。三輪下來，Codex 的 `standard` 預設組合共執行 15 次，Claude 的 `standard` 預設組合共執行 18 次。
 
 - Codex：已啟用子代理的目前版本，以及所選模型的存取權。
-- Claude Code：Agent 和 SendMessage 工具、背景代理完成通知，以及所選模型的存取權。
+- Claude（聊天、Cowork 或 Claude Code）：Agent 和 SendMessage 工具、背景代理完成通知，以及所選模型的存取權。在缺少這些工具的環境中，技能會說明議事會無法在那裡執行。
 
 目前不支援 ChatGPT 對話，因為它無法為每個席位使用不同的模型執行子代理。
 

@@ -1,7 +1,7 @@
-# Claude Code procedure
+# Claude procedure
 
-Use this procedure when the host provides Claude Code's Agent and SendMessage tools plus background-agent completion
-notifications.
+Use this procedure on a Claude host (Claude Code, Cowork, or chat) that provides the Agent and SendMessage tools plus
+background-agent completion notifications.
 
 ## Presets and seat agents
 

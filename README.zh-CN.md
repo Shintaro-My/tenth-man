@@ -1,6 +1,6 @@
 # tenth-man
 
-一个面向 [Codex](https://developers.openai.com/codex) 和 [Claude Code](https://claude.com/claude-code) 的多模型审议插件（包含一个技能和若干席位代理）。适用于设计选择、方针审查等不应只依赖单个模型回答的决策。由不同模型担任的席位进行投票，另有一个固定席位始终提出反对意见，从而降低议事会在共享同一盲点的情况下达成一致的可能性。
+一个面向 [Codex](https://developers.openai.com/codex) 和 Claude（聊天、Cowork、[Claude Code](https://claude.com/claude-code)） 的多模型审议插件（包含一个技能和若干席位代理）。适用于设计选择、方针审查等不应只依赖单个模型回答的决策。由不同模型担任的席位进行投票，另有一个固定席位始终提出反对意见，从而降低议事会在共享同一盲点的情况下达成一致的可能性。
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -60,9 +60,19 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 
 即使不复制，该技能也能正常工作：它可以用同样明确指定的模型启动子代理，并在各轮之间延续它们的对话线程。以插件形式打包时，不会自动安装自定义代理的 TOML 文件。
 
-## 在 Claude Code 中安装
+## 在 Claude 中安装
 
-### 作为插件
+### 通过 Claude 应用
+
+在 Claude 的网页版或桌面应用中，打开设置，进入“插件”，选择“添加”，然后用下面的 URL 添加市场：
+
+```text
+https://github.com/Shintaro-My/tenth-man/tree/main
+```
+
+之后，Tenth man 会出现在已添加市场的插件列表中。用这种方式添加的插件，在 Claude 聊天、Cowork 和 Claude Code 中都可以使用。要开始一次议事会，可以输入 `/tenth-man:council` 并在后面写上问题，也可以直接用自己的话提出请求。
+
+### 通过 Claude Code CLI
 
 ```text
 /plugin marketplace add Shintaro-My/tenth-man
@@ -108,7 +118,7 @@ cp agents/seat-*.md ~/.claude/agents/
 
 对应的 Codex 自定义代理是 `seat_astra`、`seat_sol`、`seat_terra`、`seat_previous_sol`，以及可选的低成本 `seat_luna`。它们的 TOML 定义固定了模型和推理强度，并让议事会的工作保持只读。
 
-### Claude Code
+### Claude
 
 | 预设 | 投票成员 | 第十人 | 每轮运行次数 |
 |---|---|---|---|
@@ -148,10 +158,10 @@ tools: Read, Grep, Glob, Bash, Write
 
 ## 成本与要求
 
-每个席位每轮对应一次完整的子代理运行。三轮下来，Codex 的 `standard` 预设共运行 15 次，Claude Code 的 `standard` 预设共运行 18 次。
+每个席位每轮对应一次完整的子代理运行。三轮下来，Codex 的 `standard` 预设共运行 15 次，Claude 的 `standard` 预设共运行 18 次。
 
 - Codex：已启用子代理的当前版本，以及所选模型的访问权限。
-- Claude Code：Agent 和 SendMessage 工具、后台代理完成通知，以及所选模型的访问权限。
+- Claude（聊天、Cowork 或 Claude Code）：Agent 和 SendMessage 工具、后台代理完成通知，以及所选模型的访问权限。在缺少这些工具的环境中，技能会说明议事会无法在那里运行。
 
 目前不支持 ChatGPT 对话，因为它无法为每个席位使用不同的模型运行子代理。
 

@@ -23,8 +23,8 @@ Question: $ARGUMENTS
 Before preparing the council, identify the current host and read exactly one procedure:
 
 - On Codex with subagent collaboration tools, read [references/codex.md](references/codex.md).
-- On Claude Code with Agent, SendMessage, and background-completion notifications, read
-  [references/claude-code.md](references/claude-code.md).
+- On a Claude host (Claude Code, Cowork, or chat) with Agent, SendMessage, and background-completion notifications,
+  read [references/claude-code.md](references/claude-code.md).
 - If neither subagent workflow is available, explain that the council cannot run here. Do not simulate several seats in
   one model while describing them as independent agents.
 
