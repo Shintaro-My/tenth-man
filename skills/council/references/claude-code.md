@@ -35,12 +35,15 @@ silently substitute. If an added model's rank is unknown and affects the dissent
 - If context has become excessive or the council goes beyond three rounds, start fresh seats and pass earlier briefs
   and preserved replies as files. Record replacements in the minutes.
 
-## Solo mode
+## Review mode
 
-Start one seat agent in the background with Agent, in the tenth-man role: `tenth-man:seat-fable` by default, or
-`tenth-man:seat-opus` when the user asks for no Fable. Give it the path of `brief.md`, the material paths in read
-order, and `tenth-man.md` in the council folder as its reply path. On the completion notification, verify that the
-reply file exists before reporting. The deadline and retry rules below apply to this single run.
+Follow `review.md` with the same seat agents and the same rules for reply files and completion notifications.
+
+- Round 1: start only the tenth-man agent in the background, with `round-1/tenth-man.md` as its reply path.
+- Round 2: start the member agents in the background. Give each the brief, the material paths, the path of the tenth
+  man's response, and a reply path under `round-2/`.
+- Round 3: continue the tenth man with SendMessage by agent ID, with a reply path under `round-3/`.
+- Round 4: continue the members with SendMessage by agent ID, with reply paths under `round-4/`.
 
 ## Deadline
 

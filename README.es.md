@@ -8,7 +8,7 @@ Los miembros con voto evalúan cada propuesta. Un **décimo hombre** (tenth man)
 
 La skill presenta primero su plan del consejo y espera tu aprobación. Para no esperar, escribe `fast` antes de la pregunta (por ejemplo, `/tenth-man:council fast ¿Deberíamos ...?`): el presidente muestra el plan y empieza de inmediato, elige él mismo las opciones predeterminadas y las enumera en el acta. Ejecutar un consejo nunca aplica sus conclusiones a tu proyecto de forma automática.
 
-Para obtener solo los argumentos en contra de algo, escribe `solo` antes de la pregunta (por ejemplo, `/tenth-man:council solo ¿Deberíamos ...?`). No se reúne ningún consejo: solo se ejecuta el décimo hombre, una vez, y devuelve hasta tres objeciones por propuesta, cada una con la evidencia que la refutaría. Como es una única ejecución de agente, empieza de inmediato. Nadie responde a estas objeciones, así que lee el resultado como una lista de cosas por comprobar, no como una decisión del consejo.
+Para comprobar un borrador que ya existe, como un plan, una nota de diseño o un documento, escribe `review` delante (por ejemplo, `/tenth-man:council review docs/migration-plan.md`). El orden del trabajo cambia: primero el décimo hombre lee el borrador y plantea objeciones, luego los miembros juzgan cada objeción y proponen correcciones, el décimo hombre replica y los miembros emiten sus votos finales. El acta recoge las objeciones aceptadas con sus correcciones, las rechazadas y lo que queda pendiente. Una revisión que no acepta ninguna objeción es un resultado normal. Cada puesto se ejecuta dos veces, así que una revisión requiere menos ejecuciones de agentes que un consejo.
 
 ## Cómo funciona
 

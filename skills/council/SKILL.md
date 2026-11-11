@@ -1,7 +1,7 @@
 ---
 name: council
-description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. With `solo`, run only the tenth man once to collect objections, with no council. Use only when the user explicitly invokes the skill; present the council plan and wait for approval before spawning agents, unless the invocation starts with `fast` or `solo`.
-argument-hint: [fast] [solo] <question, decision or proposals to deliberate>
+description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. With `review`, test a draft that already exists: the tenth man objects first, members judge each objection, and final votes decide the fixes. Use only when the user explicitly invokes the skill; present the council plan and wait for approval before spawning agents, unless the invocation starts with `fast`.
+argument-hint: [fast] [review] <question or proposals to deliberate, or the draft to review>
 disable-model-invocation: true
 ---
 
@@ -9,12 +9,12 @@ disable-model-invocation: true
 
 Act as the chair of a structured, multi-model deliberation. The question is the text the user supplied with the skill
 invocation. Claude Code fills it in on the "Question" line below. Codex leaves a placeholder there instead; on Codex,
-take the question from the user's message. The text may start with the option words `fast` and `solo` (or `--fast` and
-`--solo`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and `solo`
-selects solo mode (see "Solo mode"). Only these leading words count as options; the same words later in the text belong
-to the question. If a leading `fast` or `solo` reads as part of the question's own sentence (for example, a question
-that begins "Solo developers should ..." or the Spanish "Solo deberíamos ..."), ask the user which was meant before
-starting anything. If no question was given, ask the user for one before anything else, in every mode.
+take the question from the user's message. The text may start with the option words `fast` and `review` (or `--fast`
+and `--review`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and
+`review` selects review mode (see "Review mode"). Only these leading words count as options; the same words later in
+the text belong to the question. If a leading option word reads as part of the question's own sentence and the other
+reading would change what runs (for example, "Review cycles should be shorter?"), ask the user which was meant before
+starting anything. If no question or draft was given, ask the user for one before anything else, in every mode.
 
 Question: $ARGUMENTS
 
@@ -33,7 +33,7 @@ The rules below apply on both hosts.
 
 ## Get approval before starting
 
-Except in fast mode and solo mode, do not spawn any seat immediately. First show the user:
+Except in fast mode, do not spawn any seat immediately. First show the user:
 
 - the question and candidate items;
 - the proposed preset, every voting member's model, and the tenth man's model;
@@ -56,45 +56,16 @@ above, show it to the user, and start the seats in the same turn without waiting
 - Record in `minutes.md` that the council ran in fast mode, and list every choice the chair made without approval.
 - Fast mode skips only the approval before starting. Applying the conclusions still requires a separate request.
 
-## Solo mode
+## Review mode
 
-When `solo` is among the leading option words, do not convene a council. Run only the tenth man, once, to collect
-objections to the question. There are no voting members, no rounds 2 and 3, no votes, and no consensus. This mode gives
-the user the case against something without a full deliberation. Of the sections below, only the ones this section
-names apply.
+When `review` is among the leading option words, the subject is a draft that already exists: a plan, a design note, a
+document, a diff. Do not write items for it. Read [references/review.md](references/review.md) and follow it in place
+of "Council files", "Round protocol", and "Votes and consensus". The order of work changes: the tenth man objects to the
+draft first, the members judge each objection, the tenth man answers back, and the members cast final votes.
 
-- **Start.** Show the plan: the question and its items, the tenth man's model, the folder, and that this is one agent
-  run. Start the seat in the same turn without waiting for a reply. `fast` adds nothing in solo mode.
-- **Seat.** Start one seat as the tenth man by the runtime procedure. Use the model the usual tenth-man rule gives: the
-  strongest-reasoning model in the host's presets, or the model the user named. If that model is unavailable, stop and
-  ask the user; never substitute another model. Do not write the objections yourself or play the tenth man in the main
-  session. The seat sees only the brief and the materials, not this conversation.
-- **Brief.** Write `brief.md` as a round-0 brief without votes: the question; each item with a stable ID, what changes,
-  the grounds offered, the consequence of adopting it, and any dependency; the tenth man's instructions and response
-  format; and the materials in read order. A question that is a single proposal is one item. The rules under "Roles and
-  independence" on identical materials, neutral briefs, seat responses as evidence, and the user's language apply.
-- **Objections.** The tenth man argues against every item regardless of its own view and returns at most three
-  objections per item, most material first. Each objection carries its refutation and its basis and follows the aiming
-  rules under "Round 0". There is no number to fill: one objection is enough when further ones would be weaker. The
-  fixed sentence for a missing item-specific mechanism is used only when the item has no item-specific objection at
-  all, and that item then gets that single objection. The tenth man may also return at most one framing objection.
-- **Files.** Follow the folder rule under "Council files", with `materials/`, `brief.md`, and the preserved response
-  `tenth-man.md`. There are no round folders and no minutes.
-- **Report.** Give the path of `tenth-man.md` and report every objection in the tenth man's order, each with what
-  would refute it and its basis. Keep the tenth man's wording; do not soften, merge, or drop an objection. Do not add a
-  verdict, a ranking of your own, or a recommendation to adopt or reject anything. Say that these are objections one
-  model was assigned to make, that no member answered them, and that this is not a council result.
-- **Chair's notes.** You may add factual notes, such as a quotation that does not match the material or a point the
-  conversation has already settled. Keep them apart from the objections and label them as the chair's notes.
-- **Disclosure.** There are no minutes, so list in the report every choice you made on your own (how the question was
-  split into items, which materials were given, which model ran) and every limitation you know of, such as the chair
-  having proposed the items or the seat running on the same model as the main session.
-- **Follow-up council.** Offer to convene a council on the same question if the user wants the objections answered.
-  That council starts fresh from round 0 with a new brief. The solo response is not reused as a round-1 response.
-- **Failure.** If the seat fails before responding, retry once with the same model, brief, and materials. If it fails
-  again, tell the user.
-
-Running solo mode never applies anything to the user's project.
+Approval, fast mode, roles, independence, the model presets, and failure handling apply as written. Each seat runs
+twice, so the number of agent runs is twice the number of seats. In the plan, name the draft, say whether the main
+session wrote it, and give that number of runs.
 
 ## Roles and independence
 

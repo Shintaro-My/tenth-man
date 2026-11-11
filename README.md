@@ -16,10 +16,12 @@ The skill presents its council plan first and waits for your approval. To skip t
 defaults itself and listing those choices in the minutes. Running a council never applies its conclusions to your
 project automatically.
 
-To get only the case against something, put `solo` before the question (for example
-`/tenth-man:council solo Should we ...?`). No council convenes: the tenth man alone runs once and returns up to three
-objections per item, each with the evidence that would refute it. It is a single agent run, so it starts right away.
-Nobody answers these objections, so read the result as a list of things to check, not as a council decision.
+To check a draft that already exists, such as a plan, a design note, or a document, put `review` before it (for
+example `/tenth-man:council review docs/migration-plan.md`). The order of work changes: the tenth man reads the draft
+first and raises objections, the members judge each objection and propose fixes, the tenth man answers back, and the
+members cast final votes. The minutes list the objections that were upheld with their fixes, the ones that were
+rejected, and what remains open. A review that upholds nothing is a normal result. Each seat runs twice, so a review
+takes fewer agent runs than a council.
 
 ## How it works
 
