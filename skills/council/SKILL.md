@@ -11,8 +11,10 @@ Act as the chair of a structured, multi-model deliberation. The question is the 
 invocation. Claude Code fills it in on the "Question" line below. Codex leaves a placeholder there instead; on Codex,
 take the question from the user's message. The text may start with the option words `fast` and `solo` (or `--fast` and
 `--solo`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and `solo`
-selects solo mode (see "Solo mode"). If no question was given, ask the user for one before anything else, in every
-mode.
+selects solo mode (see "Solo mode"). Only these leading words count as options; the same words later in the text belong
+to the question. If a leading `fast` or `solo` reads as part of the question's own sentence (for example, a question
+that begins "Solo developers should ..." or the Spanish "Solo deberíamos ..."), ask the user which was meant before
+starting anything. If no question was given, ask the user for one before anything else, in every mode.
 
 Question: $ARGUMENTS
 
@@ -56,9 +58,10 @@ above, show it to the user, and start the seats in the same turn without waiting
 
 ## Solo mode
 
-When the invocation includes `solo`, do not convene a council. Run only the tenth man, once, to collect objections to
-the question. There are no voting members, no rounds 2 and 3, no votes, and no consensus. This mode gives the user the
-case against something without a full deliberation. Of the sections below, only the ones this section names apply.
+When `solo` is among the leading option words, do not convene a council. Run only the tenth man, once, to collect
+objections to the question. There are no voting members, no rounds 2 and 3, no votes, and no consensus. This mode gives
+the user the case against something without a full deliberation. Of the sections below, only the ones this section
+names apply.
 
 - **Start.** Show the plan: the question and its items, the tenth man's model, the folder, and that this is one agent
   run. Start the seat in the same turn without waiting for a reply. `fast` adds nothing in solo mode.
@@ -73,13 +76,21 @@ case against something without a full deliberation. Of the sections below, only 
 - **Objections.** The tenth man argues against every item regardless of its own view and returns at most three
   objections per item, most material first. Each objection carries its refutation and its basis and follows the aiming
   rules under "Round 0". There is no number to fill: one objection is enough when further ones would be weaker. The
-  tenth man may also return at most one framing objection.
+  fixed sentence for a missing item-specific mechanism is used only when the item has no item-specific objection at
+  all, and that item then gets that single objection. The tenth man may also return at most one framing objection.
 - **Files.** Follow the folder rule under "Council files", with `materials/`, `brief.md`, and the preserved response
   `tenth-man.md`. There are no round folders and no minutes.
-- **Report.** Report every objection to the user in the tenth man's order, each with what would refute it and its
-  basis. Do not add a verdict, a ranking of your own, or a recommendation to adopt or reject anything. Say that these
-  are objections one model was assigned to make, that no member answered them, and that this is not a council result.
-  Offer to convene a council on the same brief if the user wants the objections answered.
+- **Report.** Give the path of `tenth-man.md` and report every objection in the tenth man's order, each with what
+  would refute it and its basis. Keep the tenth man's wording; do not soften, merge, or drop an objection. Do not add a
+  verdict, a ranking of your own, or a recommendation to adopt or reject anything. Say that these are objections one
+  model was assigned to make, that no member answered them, and that this is not a council result.
+- **Chair's notes.** You may add factual notes, such as a quotation that does not match the material or a point the
+  conversation has already settled. Keep them apart from the objections and label them as the chair's notes.
+- **Disclosure.** There are no minutes, so list in the report every choice you made on your own (how the question was
+  split into items, which materials were given, which model ran) and every limitation you know of, such as the chair
+  having proposed the items or the seat running on the same model as the main session.
+- **Follow-up council.** Offer to convene a council on the same question if the user wants the objections answered.
+  That council starts fresh from round 0 with a new brief. The solo response is not reused as a round-1 response.
 - **Failure.** If the seat fails before responding, retry once with the same model, brief, and materials. If it fails
   again, tell the user.
 
