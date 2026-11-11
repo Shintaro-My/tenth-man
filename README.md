@@ -1,9 +1,9 @@
 # tenth-man
 
-A multi-model deliberation plugin (a skill plus seat agents) for [Codex](https://developers.openai.com/codex) and
-Claude (chat, Cowork, and [Claude Code](https://claude.com/claude-code)). Use it for a design choice, policy review, or
-other decision that should not rest on one model's answer. Seats on different models vote and one fixed seat always argues against, so the council
-is less likely to agree while sharing the same blind spot.
+A multi-model deliberation plugin (a skill plus seat agents) for [Codex](https://developers.openai.com/codex) and Claude
+(chat, Cowork, and [Claude Code](https://claude.com/claude-code)). Use it for a design choice, policy review, or other
+decision that should not rest on one model's answer. Seats on different models vote and one fixed seat always argues
+against, so the council is less likely to agree while sharing the same blind spot.
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
