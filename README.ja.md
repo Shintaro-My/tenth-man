@@ -1,6 +1,6 @@
 # tenth-man
 
-[Codex](https://developers.openai.com/codex) と [Claude Code](https://claude.com/claude-code) で使える、複数モデルによる意思決定のプラグイン（スキルと席のエージェント）です。設計判断や方針の見直しなど、1 つのモデルの答えだけで決めたくない議題に使います。モデルの違う複数の席が票を入れ、決まった 1 席が必ず反論するので、全員が同じ見落としをしたまま合意することを減らせます。
+[Codex](https://developers.openai.com/codex) と Claude（チャット、Cowork、[Claude Code](https://claude.com/claude-code)） で使える、複数モデルによる意思決定のプラグイン（スキルと席のエージェント）です。設計判断や方針の見直しなど、1 つのモデルの答えだけで決めたくない議題に使います。モデルの違う複数の席が票を入れ、決まった 1 席が必ず反論するので、全員が同じ見落としをしたまま合意することを減らせます。
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -60,9 +60,19 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 
 このコピーをしなくても、スキル自身が各サブエージェントへ同じモデルを直接指定し、次のラウンドでも同じスレッドを使うため、会議は動きます。プラグインとして入れても、カスタムエージェントの TOML が自動で入るとは限りません。
 
-## Claude Code への導入
+## Claude への導入
 
-### プラグインとして
+### Claude アプリから
+
+ブラウザ版またはデスクトップアプリの Claude で、設定の「プラグイン」を開き、「追加」から「マーケットプレイスを追加」を選んで、次の URL を入力します。
+
+```text
+https://github.com/Shintaro-My/tenth-man/tree/main
+```
+
+追加すると、「追加したマーケットプレイスから」の一覧に Tenth man が表示されます。この方法で追加したプラグインは、Claude のチャット、Cowork、Claude Code のどれでも使えます。会議を始めるには、`/tenth-man:council` に続けて議題を書くか、会議を開くよう言葉で頼みます。
+
+### Claude Code の CLI から
 
 ```text
 /plugin marketplace add Shintaro-My/tenth-man
@@ -108,7 +118,7 @@ cp agents/seat-*.md ~/.claude/agents/
 
 対応する Codex のカスタムエージェントは `seat_astra`、`seat_sol`、`seat_terra`、`seat_previous_sol` と、任意の低コスト席 `seat_luna` です。TOML でモデルと推論強度を固定し、会議中の作業を読み取り専用に制限します。
 
-### Claude Code
+### Claude
 
 | プリセット | 投票する参加者 | 10 番目の男 | 1 ラウンドの実行数 |
 |---|---|---|---|
@@ -148,10 +158,10 @@ tools: Read, Grep, Glob, Bash, Write
 
 ## 費用と前提
 
-1 席は 1 ラウンドにつきサブエージェントを 1 回使います。3 ラウンドなら、Codex の `standard` は 15 回、Claude Code の `standard` は 18 回です。
+1 席は 1 ラウンドにつきサブエージェントを 1 回使います。3 ラウンドなら、Codex の `standard` は 15 回、Claude の `standard` は 18 回です。
 
 - Codex: サブエージェントが有効な現行版と、選んだモデルへのアクセス。
-- Claude Code: Agent、SendMessage、バックグラウンドエージェントの完了通知と、選んだモデルへのアクセス。
+- Claude（チャット、Cowork、Claude Code）: Agent、SendMessage、バックグラウンドエージェントの完了通知と、選んだモデルへのアクセス。これらがない環境では、スキルは会議を実行できないと伝えます。
 
 ChatGPT の通常チャットでは、席ごとに別のモデルのサブエージェントを動かせないため、現時点では対象外です。
 

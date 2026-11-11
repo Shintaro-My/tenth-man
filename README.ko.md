@@ -1,6 +1,6 @@
 # tenth-man
 
-[Codex](https://developers.openai.com/codex)와 [Claude Code](https://claude.com/claude-code)에서 사용하는 다중 모델 심의 플러그인(스킬과 참석자 에이전트)입니다. 설계 선택, 정책 검토처럼 한 모델의 답에만 맡겨서는 안 되는 결정에 사용합니다. 서로 다른 모델을 사용하는 위원들이 투표하고 고정된 한 자리가 항상 반대 논거를 맡으므로, 회의가 같은 맹점을 공유한 채 합의할 가능성이 줄어듭니다.
+[Codex](https://developers.openai.com/codex)와 Claude(채팅, Cowork, [Claude Code](https://claude.com/claude-code))에서 사용하는 다중 모델 심의 플러그인(스킬과 참석자 에이전트)입니다. 설계 선택, 정책 검토처럼 한 모델의 답에만 맡겨서는 안 되는 결정에 사용합니다. 서로 다른 모델을 사용하는 위원들이 투표하고 고정된 한 자리가 항상 반대 논거를 맡으므로, 회의가 같은 맹점을 공유한 채 합의할 가능성이 줄어듭니다.
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -60,9 +60,19 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 
 이 복사를 하지 않아도 스킬은 동작합니다. 같은 모델을 명시적으로 지정해 서브에이전트를 시작하고, 라운드가 바뀌어도 그 스레드를 이어 갈 수 있기 때문입니다. 플러그인 패키징은 커스텀 에이전트 TOML 파일을 자동으로 설치하지 않습니다.
 
-## Claude Code에 설치
+## Claude에 설치
 
-### 플러그인으로 설치
+### Claude 앱에서 설치
+
+Claude 웹 앱이나 데스크톱 앱에서 설정을 열고 플러그인으로 이동한 다음, 추가를 선택하고 다음 URL로 마켓플레이스를 추가합니다.
+
+```text
+https://github.com/Shintaro-My/tenth-man/tree/main
+```
+
+그러면 추가한 마켓플레이스의 플러그인 목록에 Tenth man이 나타납니다. 이렇게 추가한 플러그인은 Claude 채팅, Cowork, Claude Code에서 모두 사용할 수 있습니다. 회의를 시작하려면 `/tenth-man:council` 뒤에 질문을 적거나, 회의를 열어 달라고 직접 말하면 됩니다.
+
+### Claude Code CLI에서 설치
 
 ```text
 /plugin marketplace add Shintaro-My/tenth-man
@@ -108,7 +118,7 @@ cp agents/seat-*.md ~/.claude/agents/
 
 이에 대응하는 Codex 커스텀 에이전트는 `seat_astra`, `seat_sol`, `seat_terra`, `seat_previous_sol`과 선택 사항인 저비용 `seat_luna`입니다. 각 TOML 정의는 모델과 추론 강도를 고정하고 회의 작업을 읽기 전용으로 유지합니다.
 
-### Claude Code
+### Claude
 
 | 프리셋 | 투표 위원 | 열 번째 사람 | 라운드당 실행 수 |
 |---|---|---|---|
@@ -148,10 +158,10 @@ tools: Read, Grep, Glob, Bash, Write
 
 ## 비용과 요구 사항
 
-참석자 한 명당 라운드마다 서브에이전트가 한 번씩 전체 실행됩니다. 세 라운드 동안 Codex `standard` 프리셋은 15회, Claude Code `standard` 프리셋은 18회 실행합니다.
+참석자 한 명당 라운드마다 서브에이전트가 한 번씩 전체 실행됩니다. 세 라운드 동안 Codex `standard` 프리셋은 15회, Claude `standard` 프리셋은 18회 실행합니다.
 
 - Codex: 서브에이전트가 활성화된 현재 릴리스와 선택한 모델에 대한 접근 권한.
-- Claude Code: Agent 및 SendMessage 도구, 백그라운드 에이전트 완료 알림, 선택한 모델에 대한 접근 권한.
+- Claude(채팅, Cowork, Claude Code): Agent 및 SendMessage 도구, 백그라운드 에이전트 완료 알림, 선택한 모델에 대한 접근 권한. 이 도구가 없는 환경에서는 스킬이 회의를 실행할 수 없다고 알려 줍니다.
 
 ChatGPT 채팅은 참석자마다 다른 모델로 서브에이전트를 실행할 수 없으므로 현재 지원 대상이 아닙니다.
 

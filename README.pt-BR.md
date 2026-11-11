@@ -1,6 +1,6 @@
 # tenth-man
 
-Um plugin de deliberação com vários modelos (uma skill e os agentes que ocupam os assentos do conselho) para [Codex](https://developers.openai.com/codex) e [Claude Code](https://claude.com/claude-code). Use-o para uma escolha de design, a revisão de uma política ou outra decisão que não deva depender da resposta de um único modelo. Agentes que usam modelos diferentes votam e um assento fixo sempre argumenta contra, então é menos provável que o conselho chegue a um acordo compartilhando o mesmo ponto cego.
+Um plugin de deliberação com vários modelos (uma skill e os agentes que ocupam os assentos do conselho) para [Codex](https://developers.openai.com/codex) e Claude (chat, Cowork e [Claude Code](https://claude.com/claude-code)). Use-o para uma escolha de design, a revisão de uma política ou outra decisão que não deva depender da resposta de um único modelo. Agentes que usam modelos diferentes votam e um assento fixo sempre argumenta contra, então é menos provável que o conselho chegue a um acordo compartilhando o mesmo ponto cego.
 
 [English](README.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Deutsch](README.de.md) | [Français](README.fr.md)
 
@@ -60,9 +60,19 @@ cp .codex/agents/seat-*.toml ~/.codex/agents/
 
 A skill continua funcionando sem essa cópia: ela pode iniciar subagentes com as mesmas atribuições explícitas de modelo e manter as conversas dos subagentes entre as rodadas. O empacotamento como plugin não instala automaticamente os arquivos TOML de agentes personalizados.
 
-## Instalação no Claude Code
+## Instalação no Claude
 
-### Como plugin
+### Pelo aplicativo do Claude
+
+No aplicativo web ou de desktop do Claude, abra as Configurações, vá em Plugins, escolha Adicionar e adicione um marketplace com esta URL:
+
+```text
+https://github.com/Shintaro-My/tenth-man/tree/main
+```
+
+O Tenth man aparece então entre os plugins dos marketplaces que você adicionou. Um plugin adicionado assim funciona no chat do Claude, no Cowork e no Claude Code. Inicie um conselho com `/tenth-man:council` seguido da pergunta, ou peça com suas próprias palavras.
+
+### Pela CLI do Claude Code
 
 ```text
 /plugin marketplace add Shintaro-My/tenth-man
@@ -108,7 +118,7 @@ Esses padrões usam apenas modelos disponibilizados pelo host do Codex e pela co
 
 Os agentes personalizados do Codex correspondentes são `seat_astra`, `seat_sol`, `seat_terra`, `seat_previous_sol` e o opcional de menor custo `seat_luna`. As definições TOML deles fixam o modelo e o esforço de raciocínio e mantêm o trabalho do conselho em modo somente leitura.
 
-### Claude Code
+### Claude
 
 | Preset | Membros votantes | Décimo homem | Execuções por rodada |
 |---|---|---|---|
@@ -148,10 +158,10 @@ Se um modelo fixado deixar de ser oferecido, o agente desse assento não consegu
 
 ## Custo e requisitos
 
-Cada assento corresponde a uma execução completa de subagente por rodada. Em três rodadas, o preset `standard` do Codex usa 15 execuções e o preset `standard` do Claude Code usa 18.
+Cada assento corresponde a uma execução completa de subagente por rodada. Em três rodadas, o preset `standard` do Codex usa 15 execuções e o preset `standard` do Claude usa 18.
 
 - Codex: uma versão atual com subagentes habilitados e acesso aos modelos selecionados.
-- Claude Code: as ferramentas Agent e SendMessage, notificações de conclusão de agentes em segundo plano e acesso aos modelos selecionados.
+- Claude (chat, Cowork ou Claude Code): as ferramentas Agent e SendMessage, notificações de conclusão de agentes em segundo plano e acesso aos modelos selecionados. Onde elas faltarem, a skill informa que o conselho não pode ser executado ali.
 
 O chat do ChatGPT não é um destino compatível no momento, porque não consegue executar subagentes com um modelo diferente para cada assento.
 
