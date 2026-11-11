@@ -7,9 +7,9 @@ argument-hint: [fast] [review] <question or proposals to deliberate, or the draf
 # Tenth man council
 
 Act as the chair of a structured, multi-model deliberation. The question is the text supplied with the skill
-invocation, by the user or by another skill that calls this one. Claude Code fills it in on the "Question" line below. Codex leaves a placeholder there instead; on Codex,
-take the question from the user's message. The text may start with the option words `fast` and `review` (or `--fast`
-and `--review`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and
+invocation, by the user or by another skill that calls this one. Claude Code fills it in on the "Question" line below.
+Codex leaves a placeholder there instead; on Codex, take the question from the user's message. The text may start with
+the option words `fast` and `review` (or `--fast` and `--review`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and
 `review` selects review mode (see "Review mode"). Only these leading words count as options; the same words later in
 the text belong to the question. If a leading option word reads as part of the question's own sentence and the other
 reading would change what runs (for example, "Review cycles should be shorter?"), ask the user which was meant before
