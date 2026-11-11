@@ -1,20 +1,20 @@
 ---
 name: council
-description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. With `review`, test a draft that already exists: the tenth man objects first, members judge each objection, and final votes decide the fixes. Use only when the user explicitly invokes the skill; present the council plan and wait for approval before spawning agents, unless the invocation starts with `fast`.
+description: Convene a multi-model council to deliberate a decision or set of proposals. Voting members assess every item, a mandatory "tenth man" argues against every item, and the chair resolves concerns and records minutes. With `review`, test a draft that already exists: the tenth man objects first, members judge each objection, and final votes decide the fixes. Use when the user asks for a council or review, or when another skill or the user's standing instructions call for one; do not convene one on your own judgment. Present the council plan and wait for approval before spawning agents, unless the invocation starts with `fast`.
 argument-hint: [fast] [review] <question or proposals to deliberate, or the draft to review>
-disable-model-invocation: true
 ---
 
 # Tenth man council
 
-Act as the chair of a structured, multi-model deliberation. The question is the text the user supplied with the skill
-invocation. Claude Code fills it in on the "Question" line below. Codex leaves a placeholder there instead; on Codex,
-take the question from the user's message. The text may start with the option words `fast` and `review` (or `--fast`
-and `--review`), in either order. Remove them from the question. `fast` selects fast mode (see "Fast mode"), and
-`review` selects review mode (see "Review mode"). Only these leading words count as options; the same words later in
-the text belong to the question. If a leading option word reads as part of the question's own sentence and the other
-reading would change what runs (for example, "Review cycles should be shorter?"), ask the user which was meant before
-starting anything. If no question or draft was given, ask the user for one before anything else, in every mode.
+Act as the chair of a structured, multi-model deliberation. The question is the text supplied with the skill invocation,
+by the user or by another skill that calls this one. Claude Code fills it in on the "Question" line below. Codex leaves
+a placeholder there instead; on Codex, take the question from the user's message. The text may start with the option
+words `fast` and `review` (or `--fast` and `--review`), in either order. Remove them from the question. `fast` selects
+fast mode (see "Fast mode"), and `review` selects review mode (see "Review mode"). Only these leading words count as
+options; the same words later in the text belong to the question. If a leading option word reads as part of the
+question's own sentence and the other reading would change what runs (for example, "Review cycles should be shorter?"),
+ask the user which was meant before starting anything. If no question or draft was given, ask the user for one before
+anything else, in every mode.
 
 Question: $ARGUMENTS
 
@@ -46,7 +46,8 @@ approval to apply its conclusions to code, rules, documents, or external systems
 ### Fast mode
 
 When the invocation starts with `fast`, the user has approved the council in advance. Prepare the plan exactly as
-above, show it to the user, and start the seats in the same turn without waiting for a reply.
+above, show it to the user, and start the seats in the same turn without waiting for a reply. `fast` counts only when
+the user typed it or a skill the user runs passes it; never add it yourself.
 
 - Settle the choices normally made at approval by the defaults: `light` for a small question and `standard` otherwise
   (or the preset the user named), and the usual tenth-man rule. When a model's rank is unclear, use the documented
